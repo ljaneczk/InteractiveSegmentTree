@@ -6,7 +6,7 @@ module SegmentTree (
 	updateAddValueOnInterval,
 	queryMinimumOnInterval,
 	queryMaximumOnInterval,
-	querySumeOnInterval,
+	querySumOnInterval,
 	getPartOfSegmentTree,
 	show',
 	SegmentTree(..)
@@ -15,7 +15,7 @@ module SegmentTree (
 import Data.Int
 import Data.Bool
 
-type Val = Int			
+type Val = Int
 
 --SegmentTree = nullLeaf | Node leftChild rightChild leftBound rightBound minimum maximum sume modifier
 data SegmentTree = Null | Node SegmentTree SegmentTree Int Int Val Val Val Val Bool deriving Show
@@ -233,17 +233,17 @@ queryMaximumOnInterval l r = queryMaximumOnInterval'
 
 
 
-querySumeOnInterval :: Int -> Int -> SegmentTree -> Val
-querySumeOnInterval l r = querySumeOnInterval'
+querySumOnInterval :: Int -> Int -> SegmentTree -> Val
+querySumOnInterval l r = querySumOnInterval'
 		where
-			querySumeOnInterval' Null = zero
+			querySumOnInterval' Null = zero
 
-			querySumeOnInterval' (Node _ _ b e _ _ _ _ _) | (e <= l || r <= b) = zero				--Intervals [l,r) and [b,e) do not intersect
+			querySumOnInterval' (Node _ _ b e _ _ _ _ _) | (e <= l || r <= b) = zero				--Intervals [l,r) and [b,e) do not intersect
 
-			querySumeOnInterval' (Node _ _ b e _ _ sum _ _) | (l <= b && e <= r) = sum				--Interval [b,e) is included in interval [l,r)
+			querySumOnInterval' (Node _ _ b e _ _ sum _ _) | (l <= b && e <= r) = sum				--Interval [b,e) is included in interval [l,r)
 
-			querySumeOnInterval' (Node lef rig _ _ _ _ _ _ _) = 								--[l,r) and [b,e) intersect and all values on [b,e) are equal
-				(querySumeOnInterval l r lef) + (querySumeOnInterval l r rig)
+			querySumOnInterval' (Node lef rig _ _ _ _ _ _ _) = 								--[l,r) and [b,e) intersect and all values on [b,e) are equal
+				(querySumOnInterval l r lef) + (querySumOnInterval l r rig)
 
 
 

@@ -11,7 +11,7 @@ import SegmentTree
 	--updateAddValueOnInterval,
 	--queryMinimumOnInterval,
 	--queryMaximumOnInterval,
-	--querySumeOnInterval,
+	--querySumOnInterval,
 	--getPartOfSegmentTree,
 	--show',
 	--SegmentTree(..)
@@ -32,7 +32,7 @@ interactWithUser' n = interactWithUser
 	where interactWithUser t1 = do
 		input <- getLine
 		if (input == ":q" || input == "q" || input == "quit" || input == "exit")
-			then putStrLn "See you next time!"
+			then putStr ""
 			else do
 				let beg = take 3 input
 				let end = drop 3 input
@@ -89,7 +89,7 @@ interactWithUser' n = interactWithUser
 									else do
 										let (a1:a2:a3) = args
 										let t2 = updateAddValueOnInterval a1 a2 0 t1
-										print (querySumeOnInterval a1 a2 t2)
+										print (querySumOnInterval a1 a2 t2)
 										interactWithUser t2
 							"tre" -> do
 								if ((length args) < 2)
@@ -121,7 +121,9 @@ main = do
 	let t1 = insertInitialNumbers 0 n initials t0
 	putStrLn ("Please introduce operations on intervals included in [0," ++ show n1 ++ ").")
 	putStrLn ("Remember that intervals are in format [beg,end), where beg >= 0 and end <= " ++ show n1 ++ ".")
+	putStrLn ("When you want to close program, type one of [q,:q,quit,exit] and press enter.")
 	interactWithUser' n1 t1
+	putStrLn "See you next time!"
 
 
 

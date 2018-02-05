@@ -1,10 +1,10 @@
-name:                segment-tree-project
+name:                InteractiveSegmentTree
 version:             0.1.0.0
-github:              "githubuser/segment-tree-project"
+github:              https://github.com/lukijzaw97/InteractiveSegmentTree
 license:             BSD3
-author:              "Author name here"
-maintainer:          "example@example.com"
-copyright:           "2018 Author name here"
+author:              Łukasz Janeczko
+maintainer:          lukij1997@gmail.com
+copyright:           2018 Łukasz Janeczko
 
 extra-source-files:
 - README.md
@@ -17,7 +17,7 @@ extra-source-files:
 # To avoid duplicated efforts in documentation and dealing with the
 # complications of embedding Haddock markup inside cabal files, it is
 # common to point users to the README.md file.
-description:         Please see the README on Github at <https://github.com/githubuser/segment-tree-project#readme>
+description:         Please see the README on Github at https://github.com/lukijzaw97/InteractiveSegmentTree
 
 dependencies:
 - base >= 4.7 && < 5
@@ -26,7 +26,7 @@ library:
   source-dirs: src
 
 executables:
-  segment-tree-project-exe:
+  InteractiveSegmentTree-exe:
     main:                Main.hs
     source-dirs:         app
     ghc-options:
@@ -34,10 +34,10 @@ executables:
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
-    - segment-tree-project
+    - InteractiveSegmentTree
 
 tests:
-  segment-tree-project-test:
+  InteractiveSegmentTree-test:
     main:                Spec.hs
     source-dirs:         test
     ghc-options:
@@ -45,4 +45,5 @@ tests:
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
-    - segment-tree-project
+    - InteractiveSegmentTree
+    - HUnit

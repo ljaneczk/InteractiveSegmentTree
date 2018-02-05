@@ -1,3 +1,3 @@
-# Changelog for segment-tree-project
+# Changelog for InteractiveSegmentTree
 
 ## Unreleased changes
