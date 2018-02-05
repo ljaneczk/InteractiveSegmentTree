@@ -8,6 +8,7 @@ This project implements segment tree which supports operations:
 - get minimum value on interval
 - get sum of values on interval
 - print values from interval in list format
+
 Please note that this program is interactive. If you want to exit, you have to type appropriate command.
 At the beginning you need to give n - the size of segment tree.
 Then you may initialize some part of tree from beginning (left) by typing numbers separated by space (you may type nothing).
