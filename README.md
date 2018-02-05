@@ -1,1 +1,1 @@
-# InteractiveSegmentTree
+# segment-tree-project
