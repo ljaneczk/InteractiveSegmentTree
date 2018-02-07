@@ -2,13 +2,13 @@
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: dde51c1a24f832202800c574af86fae6c4b02a284902bc077ea822347c90d682
+-- hash: 291034d0f134cd281a622b8637da9f2db662166a923f94c8bc91074389055883
 
 name:           InteractiveSegmentTree
 version:        0.1.0.0
 description:    Please see the README on Github at https://github.com/lukijzaw97/InteractiveSegmentTree
-homepage:       https://github.com/lukijzaw97/InteractiveSegmentTree
-bug-reports:    https://github.com/lukijzaw97/InteractiveSegmentTree
+homepage:       https://github.com/https://github.com/lukijzaw97/InteractiveSegmentTree#readme
+bug-reports:    https://github.com/https://github.com/lukijzaw97/InteractiveSegmentTree/issues
 author:         Łukasz Janeczko
 maintainer:     lukij1997@gmail.com
 copyright:      2018 Łukasz Janeczko
@@ -23,7 +23,7 @@ extra-source-files:
 
 source-repository head
   type: git
-  location: https://github.com/lukijzaw97/InteractiveSegmentTree
+  location: https://github.com/https://github.com/lukijzaw97/InteractiveSegmentTree
 
 library
   hs-source-dirs:
@@ -57,10 +57,14 @@ test-suite InteractiveSegmentTree-test
   build-depends:
       HUnit
     , InteractiveSegmentTree
+    , QuickCheck
     , base >=4.7 && <5
   other-modules:
+      AddSpec
+      GetSpec
       MaxSpec
       MinSpec
+      SetSpec
       SumSpec
       Paths_InteractiveSegmentTree
   default-language: Haskell2010

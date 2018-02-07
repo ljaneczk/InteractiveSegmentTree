@@ -21,12 +21,16 @@ type Val = Int
 data SegmentTree = Null | Node SegmentTree SegmentTree Int Int Val Val Val Val Bool deriving Show
 
 
+
+--Functions used to find optimal size of segment tree - optimal is in case of power of two
+
 findPowerOfTwo :: Int -> Int -> Int
-findPowerOfTwo s n | s >= n = s
+findPowerOfTwo s n | (s >= n) = s
 findPowerOfTwo s n = findPowerOfTwo (2 * s) n
 
 findSegmentTreeSize :: Int -> Int
 findSegmentTreeSize n = findPowerOfTwo 1 n
+
 
 
 --Constant functions returning neutral values for operations on SegmentTree
@@ -122,7 +126,7 @@ pushModifiersToChildren t @ (Node lef rig b e min max sum mod equ) = let
 
 
 
---Operations done on segment tree
+--Operations executed on segment tree - all of them have O(log n) complexity, where n = size of tree
 
 initialize :: Int -> Int -> SegmentTree
 initialize l r =
@@ -247,9 +251,6 @@ querySumOnInterval l r = querySumOnInterval'
 
 
 
-
-
-
 --With these functions the values stored in SegmentTree can be printed in sensible way
 
 getPartOfSegmentTree :: Int -> Int -> SegmentTree -> [Val]
@@ -260,9 +261,9 @@ getPartOfSegmentTree b e t = do
 show'' :: SegmentTree -> String
 show'' Null = "Null"
 show'' (Node lef rig b e min max sum mod equ) =
-	"Node " ++ show b ++ " " ++ show e ++ "  " ++ show min ++ " " ++ show max ++ " " ++ show sum ++ "  " ++ show mod ++ " " ++ show equ
-	++ "\n" ++ show'' lef ++ "\n" ++ show'' rig
+	"Node " ++ show b ++ " " ++ show e ++ "  " ++ show min ++ " " ++ show max ++ " " ++ show sum ++ "  " ++ show mod
+	++ " " ++ show equ	++ "\n" ++ show'' lef ++ "\n" ++ show'' rig
 
 
-show' :: SegmentTree -> IO()
+show' :: SegmentTree -> IO ()
 show' t = putStrLn (show'' t)

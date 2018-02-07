@@ -29,7 +29,7 @@ min b e     - return minimum number on interval [b,e)
 
 max b e     - return maximum number on interval [b,e)
 
-tre b e     - print numbers on interval [b,e) in list format
+get b e     - print numbers on interval [b,e) in list format
 
 q           - exit
 

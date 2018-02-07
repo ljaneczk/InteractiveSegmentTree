@@ -1,4 +1,4 @@
-module Main(main,mainWithoutMessages) where
+module Main(main,mainWithMessages,mainWithoutMessages) where
 
 import Data.String
 import Data.List
@@ -11,10 +11,11 @@ import SegmentTree
 	--updateAddValueOnInterval,
 	--queryMinimumOnInterval,
 	--queryMaximumOnInterval,
-	--querySumOnInterval,
+	--querySumeOnInterval,
 	--getPartOfSegmentTree,
 	--show',
 	--SegmentTree(..)
+
 
 
 type Val = Int
@@ -23,7 +24,7 @@ type Val = Int
 
 isIntervalIncorrect :: Int -> [Int] -> Bool
 isIntervalIncorrect _ x | ((length x) < 2) = True
-isIntervalIncorrect n (x1:x2:x3) = not (0 <= x1 && x1 < x2 && x2 <= n)
+isIntervalIncorrect n (x1:x2:x3) = not (0 <= x1 && x1 <= x2 && x2 <= n)
 
 
 
@@ -39,7 +40,7 @@ interactWithUser' n = interactWithUser
 				let args = map read (words end) :: [Int]
 				if (isIntervalIncorrect n args)
 					then do
-						putStrLn "Invalid interval - please ensure that your interval is included in SegmentTree boundaries."
+						putStrLn "Invalid interval - please ensure that interval is included in SegmentTree boundaries."
 						interactWithUser t1
 					else do
 						case beg of
@@ -91,7 +92,7 @@ interactWithUser' n = interactWithUser
 										let t2 = updateAddValueOnInterval a1 a2 0 t1
 										print (querySumOnInterval a1 a2 t2)
 										interactWithUser t2
-							"tre" -> do
+							"get" -> do
 								if ((length args) < 2)
 									then do
 										putStrLn "Too few arguments for tre query."
@@ -109,23 +110,26 @@ interactWithUser' n = interactWithUser
 
 
 main :: IO ()
-main = do
-	putStrLn "Please give one number: n - number of numbers stored in segment tree."
-	x <- getLine
-	let (n1:p) = map read (words x) :: [Int]
-	let n = findSegmentTreeSize n1
-	putStrLn ("Please give <= " ++ show n1 ++ " initial numbers in tree - values in tree given from beginning.")
-	input <- getLine
-	let initials = map read (words input) :: [Val]
-	let t0 = initialize 0 n
-	let t1 = insertInitialNumbers 0 n initials t0
-	putStrLn ("Please introduce operations on intervals included in [0," ++ show n1 ++ ").")
-	putStrLn ("Remember that intervals are in format [beg,end), where beg >= 0 and end <= " ++ show n1 ++ ".")
-	putStrLn ("When you want to close program, type one of [q,:q,quit,exit] and press enter.")
-	interactWithUser' n1 t1
-	putStrLn "See you next time!"
+main = mainWithMessages
 
 
+
+mainWithMessages :: IO ()
+mainWithMessages = do
+		putStrLn "Please give one number: n - number of numbers stored in segment tree."
+		x <- getLine
+		let (n1:p) = map read (words x) :: [Int]
+		let n = findSegmentTreeSize n1
+		putStrLn ("Please give <= " ++ show n1 ++ " initial numbers in tree - values in tree given from beginning.")
+		input <- getLine
+		let initials = map read (words input) :: [Val]
+		let t0 = initialize 0 n
+		let t1 = insertInitialNumbers 0 n initials t0
+		putStrLn ("Please introduce operations on intervals included in [0," ++ show n1 ++ ").")
+		putStrLn ("Remember that intervals are in format [beg,end), where beg >= 0 and end <= " ++ show n1 ++ ".")
+		putStrLn ("When you want to close program, type one of [q,:q,quit,exit] and press enter.")
+		interactWithUser' n1 t1
+		putStrLn "See you next time!"
 
 
 
