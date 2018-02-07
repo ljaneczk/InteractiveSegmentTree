@@ -11,30 +11,20 @@ This project implements segment tree which supports operations:
 
 Please note that this program is interactive. If you want to exit, you have to type appropriate command.
 
-At the beginning you need to give n - the size of segment tree.
+At the beginning you need to type n - the size of segment tree.
 
 Then you may initialize some part of tree from beginning (left) by typing numbers separated by space (you may type nothing).
 
 After that you type below commands as long as you type them in correct format.
 
 Legal commands:
-
-set b e v   - change values on interval [b,e) into v
-
-add b e v   - add value v to all numbers on interval [b,e)
-
-sum b e     - return sum of numbers on interval [b,e)
-
-min b e     - return minimum number on interval [b,e)
-
-max b e     - return maximum number on interval [b,e)
-
-get b e     - print numbers on interval [b,e) in list format
-
-q           - exit
-
-:q          - exit
-
-quit        - exit
-
-exit        - exit
+- set b e v   - change values on interval [b,e) into v
+- add b e v   - add value v to all numbers on interval [b,e)
+- sum b e     - return sum of numbers on interval [b,e)
+- min b e     - return minimum number on interval [b,e)
+- max b e     - return maximum number on interval [b,e)
+- get b e     - print numbers on interval [b,e) in list format
+- q           - exit
+- :q          - exit
+- quit        - exit
+- exit        - exit
